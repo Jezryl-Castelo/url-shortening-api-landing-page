@@ -7,7 +7,6 @@ inputForm.addEventListener('submit', (e) => {
     e.preventDefault();
     result.innerHTML = '<h1>Loading...</h1>';
     load.placeholder='Loading...'
-
     populateURL(e);
 });
 
@@ -19,21 +18,38 @@ async function populateURL(link) {
 async function urlAPI() {
     const APP_Base = 'https://api.shrtco.de/v2/shorten?url=example.org/very/long/link.html';
     const response = await fetch(APP_Base);
-    console.log(response);//test to return a promise
-    //need data
-    const data = await response.json(); //returns a promise
-    console.log(data);//should return results
+    //console.log(response);
+    const data = await response.json(); 
+    //returns a promise
+    //console.log(data);should return results
     return data;
 }
 
 function generateHTML(data) {
     const html =
-  `<p class="result-original">${input.value}</p>
-   <p class="result-new">${data.result.short_link}</p>
-    <a class="result-btn" href="#">COPY</a>`;
-    result.innerHTML = html; //append to div
-    result.style.backgroundColor = '#ffffff';
+   `<p class="result-original">${input.value}</p>
+    <p class="result-new" id="test-copy">${data.result.short_link}</p>
+    <a class="result-btn" id="resultBTN" href="#">COPY</a>`
+    //append to div
+    result.innerHTML = html; 
+    result.style.backgroundColor = '#ffffff'; 
+    let copyBtn = document.getElementById("resultBTN");
+    copyBtn.addEventListener('click', copyText);
 }
 
-//validate Url
+function copyText(e) {
+    e.preventDefault();
+    let copyText = document.getElementById("test-copy").innerText;
+    let elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = copyText;
+    elem.select();
+    document.execCommand('copy');
+    document.body.removeChild(elem); 
+}
+
+
+
+
+
 
