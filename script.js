@@ -5,9 +5,15 @@ const load = document.getElementById('urlInput').placeholder;
 
 inputForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    result.innerHTML = '<h1>Loading...</h1>';
-    load.placeholder='Loading...'
-    populateURL(e);
+    if(input.value.length === 0) {
+        let invalidMessage = document.querySelector('.invalid');
+        invalidMessage.style.display = 'grid';
+        input.style.border = '2px solid #F46363';
+    } else {
+        result.innerHTML = '<h1>Loading...</h1>';
+        load.placeholder='Loading...'
+        populateURL(e);
+    }
 });
 
 async function populateURL(link) {
@@ -47,8 +53,6 @@ function copyText(e) {
     document.execCommand('copy');
     document.body.removeChild(elem); 
 }
-
-
 
 
 
