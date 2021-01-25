@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*overflow: auto;*/
 }
 body {
     font-family: 'Poppins', sans-serif;
@@ -57,27 +56,25 @@ nav {
 .hero {
     display: grid;
     width: 100%;
-    position: relative;
     grid-template-columns: 60% 50%;
-    grid-template-rows: 200px 90px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: #ffffff;
     padding: 80px 100px 40px 100px;
     width: 100%;
     height: 660px;
-    padding-left: 200px;
+    overflow: hidden;
 }
 h2 {
     color: #34313D;
     font-size: 4rem;
     line-height: 75px;
     padding-top: 50px;
-    min-height: 200px;
 }
 h3 {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     font-weight: 500;
-    height: 200px;
+    height: 100px;
 }
 .start-btn {
     grid-column: 1 / 2;
@@ -88,7 +85,7 @@ h3 {
     grid-row: 1 / 4;
     height: auto;
     position: relative;
-    left: 160px;
+    height: 482px;
     width: auto;
 }
 .start-btn {
@@ -156,8 +153,6 @@ h3 {
 }
 .invalid {
     display: none;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
     position: absolute;
     padding-top: 8px;
     color: #F46363;
@@ -176,12 +171,12 @@ h3 {
     background-color: #ffffff;
     border-radius: 5px;
 }
-.result-original {
+/*.result-original {
     width: 30%;
     color: rgb(34, 34, 34);
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem; 
-}
+}*/
 .result-new {
     width: 30%;
     color: #2bd0d0;   
@@ -222,7 +217,8 @@ h3 {
 .stats .card {
     background-color: white;
     width: 90%;
-    height: 240px;
+    min-height: 240px;
+    height: 80%;
     padding: 77px 24px 24px 24px;
     text-align: left;
     border-radius: 4px;
@@ -257,27 +253,129 @@ h3 {
     margin: 60px auto 50px auto;
 }
 .boost {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
     height: 250px;
     margin: 0 auto;
+    
 }
 .boost-img {
     position: absolute;
+    left: 0;
     background-color: #3A3054;
     z-index: -1;
-    width: 100%;  
+    width: 100%;
+    height: 250px;  
 }
 .boost-text {
     padding-top: 58px;
     font-size: 2rem;
     color: #ffffff;
     text-align: center;
+    
 }
 .boost-btn {
+    margin-top: 24px;
+   
     height: 56px;
     width: 197px;
     background-color: #2bd0d0;
+    border-radius: 50px;
+    border: none; 
+}
+.boost-btn a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 71px;
+    height: 300px;
+    background-color: black;
+}
+.footer-logo {
+    height: 33px;
+}
+footer ul {
+    display: inline;
+    width: 12%;
+    margin-left: 10%;  
+}
+footer .list-title {
+    color: #ffffff;
+}
+footer li {
+    list-style: none;
+    justify-content: space-around;
+    font-size: 0.8rem;
+    line-height: 30px; 
+}
+.social-icon {
+    height: 24px;
+    padding: 0 6px;
+    fill: hsl(180, 66%, 49%);
 }
 .initial.resultDiv {
     background-color: #EFF1F7;
-    max-width: 1110px;
+    max-width: 1110px;  
+}
+@media (max-width: 934px) {
+    h2 {
+        padding-top: 10px;
+    }
+}
+@media (max-width: 795px) {
+    .hero {
+        display: block;
+        grid-template-columns: 90%;
+        grid-template-rows: repeat(4, 1fr);
+        height: 60%;
+        text-align: center;
+        padding-top: 10px;
+        min-height: 660px;
+    }
+    .hero h2 {
+        font-size: 2.5rem;
+        line-height: 40px;
+        margin-bottom: 10px; 
+    }
+    .working-img {
+        width: 90%;
+        height: auto;
+    }
+    .resultDiv {
+        display: block;
+        text-align: left;
+        padding: 20px;
+        margin: 100px auto 10px auto;
+        height: 155px;
+    }
+    .result-new,
+    .result-btn {
+        width: 100%;
+        text-align: left;
+    }
+    .result-new {
+        padding: 16px 0;
+        
+    }
+    .start-btn {
+        padding: 10px 20px;
+    }
+    .shorten-input,
+    .shorten-btn {
+        width: 100%;
+    }
+    .shorten-input {
+        margin-bottom: 10px; 
+    }
+    .stats-cards {
+        padding: 0;
+        width: 100%; 
+    }  
 }
